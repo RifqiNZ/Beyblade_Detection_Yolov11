@@ -72,3 +72,88 @@ The project processes each frame of the video using YOLO detection to identify B
 - Implement additional logic for more complex battle outcome detection.
 - Visualize the detection and battle results in real-time.
 
+
+## Example Screenshots
+
+Below are two screenshots from the Beyblade detection system in action:
+
+1. **Initial Setup (Battle 0)**: 
+   - Both Red and Blue Beyblades are in the initial stage before the fight begins.
+   - The system has detected hands, launchers, and the arena.
+   - No winner has been declared yet as the fight has not started.
+
+   ![Beyblade Battle 1](Beyblade_Battle_1.png)
+
+2. **Mid-Battle (Battle 1)**:
+   - The system is actively detecting the Beyblades during the fight. 
+   - The spinning Blue and Red Beyblades are being tracked.
+   - The timer indicates that the battle is ongoing, but no winner has been declared as the Beyblades are still within the arena.
+   
+   ![Beyblade Battle 2](Beyblade_Battle_2.png)
+
+
+## Model and Dataset Information
+
+The model used in this project is based on **YOLO v11** for object detection. The dataset was annotated using the **Roboflow Anotator** tool. 
+The dataset was sourced from a Beyblade video on YouTube, which can be accessed at the following link:
+[YouTube Beyblade Video](https://www.youtube.com/watch?v=CIfr5618vy4).
+
+The annotated dataset includes several key objects such as:
+- Red Beyblade (spinning and stopped)
+- Blue Beyblade (spinning and stopped)
+- Arena
+- Hands
+- Launchers
+
+This dataset was used to train the YOLO v11 model, which is then used to detect these objects in real-time video feeds.
+
+## Model Performance Analysis
+
+The model performance can be visualized through several key metrics as shown below:
+
+### 1. Confusion Matrix
+The confusion matrix shows how well the model is classifying each of the Beyblade classes. The diagonal cells represent correct predictions, while off-diagonal cells indicate misclassifications.
+
+- The model is most accurate in detecting the `Arena` and `Red_Beyblade_Spin`, with 18 and 16 correct predictions, respectively.
+- There are some minor misclassifications between `Blue_Beyblade_Spin` and `Blue_Beyblade_Stop`, indicating that the model sometimes confuses these states.
+
+![Confusion Matrix](/mnt/data/confusion_matrix.png)
+
+### 2. F1-Confidence Curve
+The F1-Confidence curve provides insights into the precision and recall of the model across different confidence thresholds. A higher F1 score indicates better balance between precision and recall.
+
+- The model achieves an F1 score of 0.93 across all classes, at a confidence threshold of 0.504.
+- The performance is consistent across most of the classes, as indicated by the tight clustering of the curves at high confidence levels.
+
+![F1-Confidence Curve](/mnt/data/F1_curve.png)
+
+### 3. Labels Correlogram
+The labels correlogram provides an overview of the distribution of bounding box coordinates (x, y, width, height) for the detected objects. This helps in understanding how the objects are distributed across the video frame.
+
+- The distribution indicates that the Beyblades tend to stay close to the center of the frame (as shown by the concentration of values around the middle).
+- The width and height distributions suggest that most objects are of consistent size, likely corresponding to the arena or Beyblade.
+
+![Labels Correlogram](/mnt/data/labels_correlogram.png)
+
+### 4. Results Overview
+The model's performance in terms of precision, recall, and F1 score can be further explored using the CSV file which logs the metrics for each class. You can download it for more detailed analysis:
+[Download Results CSV](sandbox:/mnt/data/results.csv)
+
+## Conclusion
+
+Based on the confusion matrix and F1-confidence curve, the model trained on the YOLO v11 architecture demonstrates strong performance, with an overall F1 score of 0.93. 
+
+While the model is highly accurate in detecting key objects such as the `Arena` and `Red_Beyblade_Spin`, there are some misclassifications between `Blue_Beyblade_Spin` and `Blue_Beyblade_Stop`. These could be improved by refining the dataset or tuning the model further.
+
+Overall, the model performs well for real-time Beyblade detection and tracking, making it a valuable tool for analyzing battles in real-time.
+
+### 5. Beyblade Battle Data
+
+The battle data extracted from the video, including key metrics such as battle number, duration, winner, and cause of the win, is stored in the following CSV file:
+[Download Beyblade Battle Data CSV](sandbox:/mnt/data/beyblade_battle_data_pandas.csv)
+
+This data was captured during the real-time detection and includes details like:
+- Battle Number
+- Fight Duration
+- The Winner (Blue or Red Beyblade)
+- The Cause of Winning (e.g., spinning outside the arena)
