@@ -1,10 +1,10 @@
 
 # Beyblade Detection and Battle Data Logging
 
-This project uses a pre-trained YOLO model to detect and analyze Beyblade fights in a video. It processes the video frames, detects the spinning Beyblades, tracks their movements, and logs the battle outcomes into a CSV file.
+This project uses a pre-trained YOLO V11 model to detect and analyze Beyblade fights in a video. It processes the video frames, detects the spinning Beyblades, tracks their movements, and logs the battle outcomes into a CSV file.
 
 ## Project Structure
-1. **YOLO Model**: The project uses the YOLO model for object detection, which has been pre-trained on a Beyblade dataset.
+1. **YOLO V11 Model**: The project uses the YOLO V11 model for object detection, which has been pre-trained on a Beyblade dataset.
 2. **Video Processing**: The project processes a video file frame by frame to detect objects in real time.
 3. **Battle Logging**: The results of each battle (e.g., duration, winner, and cause) are saved in a CSV file.
 
@@ -16,16 +16,16 @@ This project uses a pre-trained YOLO model to detect and analyze Beyblade fights
 
 ### 1. Import Libraries
 The project imports the following essential libraries:
-- `YOLO`: For loading the pre-trained YOLO model and performing object detection.
+- `YOLO V11`: For loading the pre-trained YOLO V11 model and performing object detection.
 - `cv2`: For video processing and frame capturing.
 - `csv`: For saving battle data in CSV format.
 - `time`: For managing time data such as battle duration.
 - `pandas`: For handling and saving data in a DataFrame.
 
-### 2. Load YOLO Model and Video
-The YOLO model is loaded from a specified file path, and the video is loaded using OpenCV:
+### 2. Load YOLO V11 Model and Video
+The YOLO V11 model is loaded from a specified file path, and the video is loaded using OpenCV:
 ```python
-model = YOLO('/path/to/best.pt')
+model = YOLO V11('/path/to/best.pt')
 video = '/path/to/video.mp4'
 cap = cv2.VideoCapture(video)
 ```
@@ -59,16 +59,16 @@ def save_to_dataframe_csv(battle_data):
 ```
 
 ### 6. Frame-by-Frame Video Processing
-The project processes each frame of the video using YOLO detection to identify Beyblades, track their positions, and determine if they spin outside the arena. Battle outcomes are recorded based on the object movements detected in the frames.
+The project processes each frame of the video using YOLO V11 detection to identify Beyblades, track their positions, and determine if they spin outside the arena. Battle outcomes are recorded based on the object movements detected in the frames.
 
 ## How to Run
 1. Load the Jupyter Notebook (`run.ipynb`).
-2. Ensure the YOLO model (`best.pt`) is in the correct path.
+2. Ensure the YOLO V11 model (`best.pt`) is in the correct path.
 3. Update the video path to the location of your Beyblade video.
 4. Run the notebook. The results will be saved in a CSV file (`beyblade_battle_data_pandas.csv`).
 
 ## Future Improvements
-- Enhance the detection accuracy by fine-tuning the YOLO model on a larger dataset.
+- Enhance the detection accuracy by fine-tuning the YOLO V11 model on a larger dataset.
 - Implement additional logic for more complex battle outcome detection.
 - Visualize the detection and battle results in real-time.
 
@@ -94,7 +94,7 @@ Below are two screenshots from the Beyblade detection system in action:
 
 ## Model and Dataset Information
 
-The model used in this project is based on **YOLO v11** for object detection. The dataset was annotated using the **Roboflow Anotator** tool. 
+The model used in this project is based on **YOLO V11 v11** for object detection. The dataset was annotated using the **Roboflow Anotator** tool. 
 The dataset was sourced from a Beyblade video on YouTube, which can be accessed at the following link:
 [YouTube Beyblade Video](https://www.youtube.com/watch?v=CIfr5618vy4).
 
@@ -105,7 +105,7 @@ The annotated dataset includes several key objects such as:
 - Hands
 - Launchers
 
-This dataset was used to train the YOLO v11 model, which is then used to detect these objects in real-time video feeds.
+This dataset was used to train the YOLO V11 v11 model, which is then used to detect these objects in real-time video feeds.
 
 ## Model Performance Analysis
 
@@ -137,11 +137,11 @@ The labels correlogram provides an overview of the distribution of bounding box 
 
 ### 4. Results Overview
 The model's performance in terms of precision, recall, and F1 score can be further explored using the CSV file which logs the metrics for each class. You can download it for more detailed analysis:
-[Download Results CSV](sandbox:/mnt/data/results.csv)
+[Download Results CSV](results.csv)
 
 ## Conclusion
 
-Based on the confusion matrix and F1-confidence curve, the model trained on the YOLO v11 architecture demonstrates strong performance, with an overall F1 score of 0.93. 
+Based on the confusion matrix and F1-confidence curve, the model trained on the YOLO V11 v11 architecture demonstrates strong performance, with an overall F1 score of 0.93. 
 
 While the model is highly accurate in detecting key objects such as the `Arena` and `Red_Beyblade_Spin`, there are some misclassifications between `Blue_Beyblade_Spin` and `Blue_Beyblade_Stop`. These could be improved by refining the dataset or tuning the model further.
 
@@ -150,7 +150,7 @@ Overall, the model performs well for real-time Beyblade detection and tracking, 
 ### 5. Beyblade Battle Data
 
 The battle data extracted from the video, including key metrics such as battle number, duration, winner, and cause of the win, is stored in the following CSV file:
-[Download Beyblade Battle Data CSV](sandbox:/mnt/data/beyblade_battle_data_pandas.csv)
+[Download Beyblade Battle Data CSV](beyblade_battle_data_pandas.csv)
 
 This data was captured during the real-time detection and includes details like:
 - Battle Number
