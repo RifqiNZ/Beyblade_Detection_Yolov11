@@ -157,3 +157,4 @@ This data was captured during the real-time detection and includes details like:
 - Fight Duration
 - The Winner (Blue or Red Beyblade)
 - The Cause of Winning (e.g., spinning outside the arena)
+- Fight Count (Blue and Red Beyblade get contact)
