@@ -117,7 +117,7 @@ The confusion matrix shows how well the model is classifying each of the Beyblad
 - The model is most accurate in detecting the `Arena` and `Red_Beyblade_Spin`, with 18 and 16 correct predictions, respectively.
 - There are some minor misclassifications between `Blue_Beyblade_Spin` and `Blue_Beyblade_Stop`, indicating that the model sometimes confuses these states.
 
-![Confusion Matrix](/mnt/data/confusion_matrix.png)
+![Confusion Matrix](confusion_matrix.png)
 
 ### 2. F1-Confidence Curve
 The F1-Confidence curve provides insights into the precision and recall of the model across different confidence thresholds. A higher F1 score indicates better balance between precision and recall.
@@ -125,7 +125,7 @@ The F1-Confidence curve provides insights into the precision and recall of the m
 - The model achieves an F1 score of 0.93 across all classes, at a confidence threshold of 0.504.
 - The performance is consistent across most of the classes, as indicated by the tight clustering of the curves at high confidence levels.
 
-![F1-Confidence Curve](/mnt/data/F1_curve.png)
+![F1-Confidence Curve](F1_curve.png)
 
 ### 3. Labels Correlogram
 The labels correlogram provides an overview of the distribution of bounding box coordinates (x, y, width, height) for the detected objects. This helps in understanding how the objects are distributed across the video frame.
@@ -133,7 +133,7 @@ The labels correlogram provides an overview of the distribution of bounding box 
 - The distribution indicates that the Beyblades tend to stay close to the center of the frame (as shown by the concentration of values around the middle).
 - The width and height distributions suggest that most objects are of consistent size, likely corresponding to the arena or Beyblade.
 
-![Labels Correlogram](/mnt/data/labels_correlogram.png)
+![Labels Correlogram](labels_correlogram.png)
 
 ### 4. Results Overview
 The model's performance in terms of precision, recall, and F1 score can be further explored using the CSV file which logs the metrics for each class. You can download it for more detailed analysis:
